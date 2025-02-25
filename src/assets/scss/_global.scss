@@ -1,0 +1,29 @@
+// font
+@import url(../font/NotoSansKR/NotoSansKR.css);
+@import url(../font/Pretendard/Pretendard.css);
+
+$logo-font-stack: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+$default-font-stack: "Noto Sans KR", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, "Helvetica Neue", "Malgun Gothic", "맑은 고딕",
+  "Apple SD Gothic Neo", "Dotum", "돋움", Arial, sans-serif;
+
+$default-font-size: 14px;
+
+// primary-color
+$primary-color: (#2c3e50, #f39c12, #fcf6e1);
+
+// point-color
+$point-color: (#1475f4, #ff4d4f);
+
+// gray-scale
+$white: #fff;
+$black: #000;
+
+$gray-100: #ecf0f1;
+$gray-200: #b9bcc1;
+$gray-300: #7a7a7a;
+$gray-400: #333333;
+
+// box-shadow
+$default-shadow: 0px 5px 24px 0px rgba(0, 0, 0, 0.1);

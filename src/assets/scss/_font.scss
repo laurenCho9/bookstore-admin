@@ -1,0 +1,36 @@
+.logo-font {
+  font-family: $logo-font-stack;
+  font-weight: 900;
+}
+
+// font-size
+h1 {
+  font-size: 56px;
+}
+h2,
+.title-1 {
+  font-size: 40px;
+}
+h3,
+.title-2 {
+  font-size: 32px;
+}
+
+h4,
+.text-1 {
+  font-size: 24px;
+}
+.text-2 {
+  font-size: 20px;
+}
+.text-3 {
+  font-size: 18px;
+}
+.text-4 {
+  font-size: 16px;
+}
+
+// font-weight
+.font-weight-700 {
+  font-weight: 700;
+}
