@@ -22,6 +22,42 @@ const BookListPage = () => {
   const [error, setError] = useState<string | null>(null);
 
   // ---------------------------------------------------------------
+  // API, useEffect
+  // ---------------------------------------------------------------
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const data = await getBooks();
+        console.log("📚 API 응답 데이터:", data); // 🔥 확인용 로그 추가
+        setBooks(data);
+        setLoading(false);
+      } catch (err) {
+        setError("데이터를 불러오는 중 오류가 발생했습니다.");
+        setLoading(false);
+      }
+    };
+
+    fetchBooks();
+  }, []);
+
+  // ---------------------------------------------------------------
+  // private methods
+  // ---------------------------------------------------------------
+  // 🔍 검색 필터 적용
+  const filteredBooks = books.filter(
+    (book) =>
+      book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      book.author.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // 📖 페이지네이션 적용
+  const totalPage = Math.ceil(filteredBooks.length / ITEMS_PER_PAGE);
+  const displayedBooks = filteredBooks.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  // ---------------------------------------------------------------
   // Handler
   // ---------------------------------------------------------------
   const handlePageChange = (page: number) => {
@@ -41,43 +77,8 @@ const BookListPage = () => {
     }
   };
 
-  // ---------------------------------------------------------------
-  // private methods
-  // ---------------------------------------------------------------
-  // 🔍 검색 필터 적용
-  const filteredBooks = books.filter(
-    (book) =>
-      book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      book.author.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  // 📖 페이지네이션 적용
-  const totalPage = Math.ceil(filteredBooks.length / ITEMS_PER_PAGE);
-  const displayedBooks = filteredBooks.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
-
   if (loading) return <p>📚 책 목록을 불러오는 중...</p>;
   if (error) return <p>❌ {error}</p>;
-
-  // ---------------------------------------------------------------
-  // useEffect
-  // ---------------------------------------------------------------
-  useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const data = await getBooks();
-        setBooks(data);
-      } catch (err) {
-        setError("데이터를 불러오는 중 오류가 발생했습니다.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBooks();
-  }, []);
 
   return (
     <div className="board-container">
