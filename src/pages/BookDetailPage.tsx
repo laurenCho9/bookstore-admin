@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import { getBookById } from "../api/bookApi";
 
 const BookDetailPage = () => {
+  // ---------------------------------------------------------------
+  // 초기 변수 설정
+  // ---------------------------------------------------------------
   const { id } = useParams();
   const [book, setBook] = useState<{
     id: number;
@@ -13,6 +16,9 @@ const BookDetailPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // ---------------------------------------------------------------
+  // API, useEffect
+  // ---------------------------------------------------------------
   useEffect(() => {
     const fetchBook = async () => {
       try {
@@ -28,6 +34,9 @@ const BookDetailPage = () => {
     fetchBook();
   }, [id]);
 
+  // ---------------------------------------------------------------
+  // private methods
+  // ---------------------------------------------------------------
   if (loading) return <p>📖 책 정보를 불러오는 중...</p>;
   if (error) return <p>❌ {error}</p>;
 

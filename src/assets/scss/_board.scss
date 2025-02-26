@@ -7,7 +7,12 @@
   position: relative;
   box-shadow: $default-shadow;
 }
-
+.generate-button {
+  width: 80px;
+  background-color: $gray-500;
+  color: $white;
+  border-radius: 12px;
+}
 .search-box {
   display: flex;
   gap: 8px;

@@ -13,3 +13,13 @@ export const getBookById = async (id: number) => {
   const response = await axios.get(`${API_URL}/api/books/${id}`);
   return response.data;
 };
+
+// 책 추가
+export const addBook = async (book: {
+  title: string;
+  author: string;
+  quantity: number;
+}) => {
+  const response = await axios.post(`${API_URL}/api/books`, book);
+  return response.data;
+};
