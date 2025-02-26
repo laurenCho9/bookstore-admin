@@ -1,0 +1,10 @@
+.board-container {
+  width: 540px;
+  height: 100vh;
+  background-color: $white;
+  border: 1px solid $gray-200;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

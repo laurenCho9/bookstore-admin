@@ -1,0 +1,44 @@
+.pagenation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  .arrow {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+
+    & img {
+      width: 16px;
+      height: 16px;
+      transition: opacity 0.3s ease;
+    }
+
+    &.disabled {
+      & img {
+        opacity: 0.4; // 흐리게 처리
+      }
+    }
+  }
+  .num {
+    display: flex;
+    gap: 4px;
+    .page-number {
+      font-size: 14px;
+      background-color: $white;
+      border: 1px solid $gray-200;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &.active {
+        background-color: nth($primary-color, 1);
+        color: $white;
+      }
+    }
+  }
+}

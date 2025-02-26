@@ -2,4 +2,13 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./assets/scss/app.scss";
 
-createRoot(document.getElementById("root")!).render(<App />);
+async function enableMocking() {
+  if (import.meta.env.MODE === "development") {
+    const { worker } = await import("./api/browser");
+    await worker.start();
+  }
+}
+
+enableMocking().then(() => {
+  createRoot(document.getElementById("root")!).render(<App />);
+});

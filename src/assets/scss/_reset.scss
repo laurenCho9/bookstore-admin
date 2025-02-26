@@ -4,8 +4,11 @@
 body {
   font-family: $default-font-stack;
   font-size: $default-font-size;
-  font-weight: 700;
-  color: $gray-400;
+  font-weight: 600;
+  color: $gray-500;
+  background-color: $gray-200;
+  display: flex;
+  justify-content: center;
 }
 
 // position
