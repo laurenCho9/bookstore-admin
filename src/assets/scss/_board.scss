@@ -1,17 +1,21 @@
 .board-container {
   width: 540px;
   height: 100vh;
-  background-color: $white;
+  background-color: nth($primary-color, 3);
   border: 1px solid $gray-200;
-  padding: 20px;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
+  position: relative;
+  box-shadow: $default-shadow;
 }
 
 .search-box {
   display: flex;
   gap: 8px;
+  margin-top: 14px;
+  margin-bottom: 10px;
   input {
     width: 100%;
     padding: 8px;
@@ -19,7 +23,7 @@
   button {
     width: 60px;
     font-size: 14px;
-    background-color: nth($primary-color, 1);
+    background-color: nth($primary-color, 2);
     color: $white;
   }
 }

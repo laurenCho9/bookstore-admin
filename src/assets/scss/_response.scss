@@ -5,5 +5,27 @@
   .board-container {
     width: 100%;
     padding: 20px 14px;
+    gap: 10px;
+  }
+  .search-box {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .pagenation {
+    width: 92%;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    .arrow {
+      & img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .num {
+      .page-number {
+        height: 30px;
+      }
+    }
   }
 }

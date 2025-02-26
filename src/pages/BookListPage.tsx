@@ -82,7 +82,7 @@ const BookListPage = () => {
 
   return (
     <div className="board-container">
-      <h3 className="flex">
+      <h3 className="flex gap-6">
         <img width="38px" height="32px" src="/bookstore.png" />
         서점 관리자
       </h3>
@@ -99,17 +99,32 @@ const BookListPage = () => {
       </div>
 
       {/* 📖 책 리스트 */}
-      <div>
-        {displayedBooks.length > 0 ? (
-          displayedBooks.map((book) => (
-            <div key={book.id}>
-              <strong>{book.title}</strong> - {book.author}
-            </div>
-          ))
-        ) : (
-          <p>🔍 검색 결과가 없습니다.</p>
-        )}
-      </div>
+      <table className="table-board">
+        <thead>
+          <tr>
+            <th className="no">NO</th>
+            <th className="subject">책 제목</th>
+            <th className="writer">저자</th>
+          </tr>
+        </thead>
+        <tbody>
+          {displayedBooks.length > 0 ? (
+            displayedBooks.map((book) => (
+              <tr key={book.id}>
+                <td className="no">{book.id}</td>
+                <td className="subject">{book.title}</td>
+                <td className="writer">{book.author}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={3} className="no-results">
+                🔍 검색 결과가 없습니다.
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
 
       {/* 📄 페이지네이션 컴포넌트 */}
       {filteredBooks.length > 0 && (

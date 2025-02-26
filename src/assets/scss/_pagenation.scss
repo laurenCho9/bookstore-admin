@@ -3,6 +3,16 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
+  position: sticky;
+  background-color: $white;
+  border-radius: 16px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  padding: 6px;
+  box-shadow: $default-shadow;
 
   .arrow {
     background: none;
@@ -13,8 +23,8 @@
     padding: 5px;
 
     & img {
-      width: 16px;
-      height: 16px;
+      width: 24px;
+      height: 24px;
       transition: opacity 0.3s ease;
     }
 
@@ -26,14 +36,14 @@
   }
   .num {
     display: flex;
-    gap: 4px;
+    gap: 6px;
     .page-number {
       font-size: 14px;
       background-color: $white;
-      border: 1px solid $gray-200;
       padding: 5px 10px;
       cursor: pointer;
       transition: background-color 0.3s;
+      height: 36px;
 
       &.active {
         background-color: nth($primary-color, 1);

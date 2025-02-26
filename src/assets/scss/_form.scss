@@ -4,6 +4,10 @@ input {
   border: 1px solid $gray-200;
   padding: 4px 8px;
   border-radius: 8px;
+  transition: border-color 0.3s;
+  &:focus {
+    border-color: nth($primary-color, 2);
+  }
 }
 
 button {
