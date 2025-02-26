@@ -1,13 +1,9 @@
 .notfound {
-  width: 540px;
-  height: 100vh;
-  background-color: $white;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: start;
   gap: 8px;
-  padding: 20px;
   p {
     font-size: 20px;
   }

@@ -1,8 +1,5 @@
 .board-container {
-  width: 540px;
-  height: 100vh;
   background-color: nth($primary-color, 3);
-  border: 1px solid $gray-200;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getBooks } from "../api/bookApi";
 import Pagenation from "../common/Pagenation";
+import { useNavigate } from "react-router-dom";
 
 const ITEMS_PER_PAGE = 10; // 한 페이지당 보여줄 개수
 
@@ -57,6 +58,8 @@ const BookListPage = () => {
     currentPage * ITEMS_PER_PAGE
   );
 
+  const navigate = useNavigate();
+
   // ---------------------------------------------------------------
   // Handler
   // ---------------------------------------------------------------
@@ -81,7 +84,7 @@ const BookListPage = () => {
   if (error) return <p>❌ {error}</p>;
 
   return (
-    <div className="board-container">
+    <div className="container board-container">
       <h3 className="flex gap-6">
         <img width="38px" height="32px" src="/bookstore.png" />
         서점 관리자
@@ -112,7 +115,12 @@ const BookListPage = () => {
             displayedBooks.map((book) => (
               <tr key={book.id}>
                 <td className="no">{book.id}</td>
-                <td className="subject">{book.title}</td>
+                <td
+                  className="subject"
+                  onClick={() => navigate(`/books/${book.id}`)}
+                >
+                  {book.title}
+                </td>
                 <td className="writer">{book.author}</td>
               </tr>
             ))
