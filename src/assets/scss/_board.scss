@@ -8,3 +8,18 @@
   flex-direction: column;
   gap: 16px;
 }
+
+.search-box {
+  display: flex;
+  gap: 8px;
+  input {
+    width: 100%;
+    padding: 8px;
+  }
+  button {
+    width: 60px;
+    font-size: 14px;
+    background-color: nth($primary-color, 1);
+    color: $white;
+  }
+}
