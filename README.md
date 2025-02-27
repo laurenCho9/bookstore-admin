@@ -2,7 +2,7 @@
 상점 주인이 책을 검색하고, 상세 정보를 보고 편집하며, 각 책의 판매 수량을 확인할 수 있습니다.
 
 ## Stack
-: MSW 목데이터
+- Back-end: MSW 목데이터
 - Front-end: Vite, React + TypeScript, SCSS
 - Etc library: React-router, SCSS-reset, Axios
 
