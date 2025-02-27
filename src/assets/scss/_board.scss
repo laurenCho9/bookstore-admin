@@ -29,3 +29,15 @@
     color: $white;
   }
 }
+
+.delete-button {
+  background-color: nth($point-color, 2);
+  color: $white;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  // padding: 6px;
+  box-shadow: $default-shadow;
+}

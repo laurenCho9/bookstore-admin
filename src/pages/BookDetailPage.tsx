@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getBookById, updateBookQuantity } from "../api/bookApi";
+import { useNavigate, useParams } from "react-router-dom";
+import { deleteBook, getBookById, updateBookQuantity } from "../api/bookApi";
 import Modal from "../common/Modal";
 
 const BookDetailPage = () => {
@@ -42,6 +42,8 @@ const BookDetailPage = () => {
   // ---------------------------------------------------------------
   // private methods
   // ---------------------------------------------------------------
+  const navigate = useNavigate();
+
   if (loading) return <p>📖 책 정보를 불러오는 중...</p>;
   if (error) return <p>❌ {error}</p>;
 
@@ -61,6 +63,18 @@ const BookDetailPage = () => {
     setNewQuantity(Number(e.target.value));
   };
 
+  const handleDelete = async () => {
+    if (book && window.confirm(`📚 "${book.title}"을(를) 삭제하시겠습니까?`)) {
+      try {
+        await deleteBook(book.id);
+        alert("✅ 책이 삭제되었습니다.");
+        navigate("/"); // ✅ 삭제 후 메인 페이지로 이동
+      } catch (error) {
+        alert("❌ 책 삭제 중 오류가 발생했습니다.");
+      }
+    }
+  };
+
   const handleSave = async () => {
     if (book) {
       try {
@@ -77,7 +91,7 @@ const BookDetailPage = () => {
   return (
     <div className="container board-container">
       <div className="flex justify-between">
-        <h3>
+        <h3 className="flex gap-6">
           <img width="38px" height="32px" src="/bookstore.png" />
           {book?.title}
         </h3>
@@ -91,6 +105,9 @@ const BookDetailPage = () => {
       <p>
         <strong>수량:</strong> {book?.quantity}
       </p>
+      <button onClick={handleDelete} className="delete-button">
+        삭제
+      </button>
       {/* ✅ 모달 컴포넌트 */}
       <Modal isOpen={isModalOpen}>
         <h3>📖 책 정보 수정</h3>
