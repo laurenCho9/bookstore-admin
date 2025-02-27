@@ -23,3 +23,15 @@ export const addBook = async (book: {
   const response = await axios.post(`${API_URL}/api/books`, book);
   return response.data;
 };
+
+// 책 정보 수정 (수량 조절)
+export const updateBookQuantity = async (id: number, quantity: number) => {
+  const response = await axios.put(`${API_URL}/api/books/${id}`, { quantity });
+  return response.data;
+};
+
+// 책 삭제
+export const deleteBook = async (id: number) => {
+  const response = await axios.delete(`${API_URL}/api/books/${id}`);
+  return response.data;
+};
