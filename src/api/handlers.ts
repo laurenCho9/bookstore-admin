@@ -23,6 +23,7 @@ export const handlers = [
       title: newBook.title || "Unknown Title",
       author: newBook.author || "Unknown Author",
       publishedDate: newBook.publishedDate || "Unknown Date",
+      quantity: newBook.quantity !== undefined ? newBook.quantity : 0, // ✅ undefined 방지 처리
     };
 
     mockBooks.push(bookWithId);

@@ -3,4 +3,5 @@ export type TBook = {
   title: string;
   author: string;
   publishedDate: string;
+  quantity: number;
 };
