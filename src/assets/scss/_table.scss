@@ -70,6 +70,10 @@
       }
       &.writer {
         font-weight: 500;
+        max-width: 96px;
+        white-space: nowrap; /* 줄바꿈 방지 */
+        overflow: hidden; /* 넘친 내용 감추기 */
+        text-overflow: ellipsis; /* 말줄임표 처리 */
       }
     }
 
